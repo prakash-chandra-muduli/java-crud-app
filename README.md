@@ -1,63 +1,98 @@
-## 🛠 How to Run and Check the CRUD App in Java
-
-### 🚀 Running the Application
-
-1. **Clone the Repository**
-
-```bash
-git clone https://github.com/your-username/spring-crud-rest.git
-cd spring-crud-rest
-```
-
-2. **Set Up the Environment**  
-   Ensure you have the following installed:
-
-- Java Development Kit (JDK) 11 or higher
-- Maven 3.6 or higher
-- A database (e.g., MySQL or PostgreSQL)
-
-3. **Configure the Database**  
-   Update the `application.properties` file located in `src/main/resources` with your database credentials:
-
-```properties
-spring.datasource.url=jdbc:mysql://localhost:3306/your_database_name
-spring.datasource.username=your_username
-spring.datasource.password=your_password
-```
-
-4. **Build the Project**  
-   Run the following command to build the project:
-
-```bash
-mvn clean install
-```
-
-5. **Run the Application**  
-   Start the application using:
-
-```bash
-mvn spring-boot:run
-```
-
-### 🔍 Testing the Application
-
-1. **Access the API**  
-   Open your browser or API testing tool (e.g., Postman) and navigate to:
+### Project Structure
 
 ```
-http://localhost:8080/api/v1/resource
+spring-crud-rest/
+├── src/
+│   ├── main/
+│   │   ├── java/
+│   │   │   └── org/
+│   │   │         └── springcrudrest/
+│   │   │               ├── controller/
+│   │   │               │   └── UserController.java
+│   │   │               ├── model/
+│   │   │               │   └── User.java
+│   │   │               ├── repository/
+│   │   │               │   └── UserRepository.java
+│   │   │               ├── service/
+│   │   │               │   └── UserService.java
+│   │   │               ├── congig/
+│   │   │               │   └── DataInitailizer.java
+│   │   │               └── SpringCrudRestApplication.java
+│   │   └── resources/
+│   │       ├── application.properties
+├── pom.xml
+└── README.md
 ```
 
-2. **Perform CRUD Operations**
+#### Spring Framework Annotations used here
 
-- **Create**: Send a POST request to add a new resource.
-- **Read**: Send a GET request to retrieve resources.
-- **Update**: Send a PUT request to modify an existing resource.
-- **Delete**: Send a DELETE request to remove a resource.
+1. **`@SpringBootApplication`**
 
-3. **Check Logs**  
-   Monitor the console logs for any errors or status updates.
+- Marks the main class of a Spring Boot application.
+- Combines `@Configuration`, `@EnableAutoConfiguration`, and `@ComponentScan`.
 
----
+2. **`@RestController`**
 
-Feel free to explore and customize the application as needed!
+- Indicates that the class is a controller where `@RequestMapping` methods return `@ResponseBody`.
+
+3. **`@RequestMapping`**
+
+- Maps HTTP requests to handler methods of MVC and REST controllers.
+
+4. **`@GetMapping`, `@PostMapping`, `@PutMapping`, `@DeleteMapping`**
+
+- Specialized annotations for mapping HTTP GET, POST, PUT, and DELETE requests.
+
+5. **`@PathVariable`**
+
+- Used to extract values from the URI template.
+
+6. **`@RequestBody`**
+
+- Maps the body of the HTTP request to a Java object.
+
+7. **`@Autowired`**
+
+- Enables automatic dependency injection.
+
+8. **`@Entity`**
+
+- Specifies that the class is an entity and is mapped to a database table.
+
+9. **`@Table`**
+
+- Used to specify the table name for an entity.
+
+10. **`@Id`**
+
+- Marks a field as the primary key.
+
+11. **`@GeneratedValue`**
+
+- Specifies how the primary key should be generated (e.g., auto-increment).
+
+12. **`@Column`**
+
+- Maps a field to a specific column in the database.
+
+13. **`@Transactional`**
+
+- Indicates that a method or class should be executed within a transaction.
+
+#### Validation Annotations
+
+1. **`@NotNull`**
+
+- Ensures that a field cannot be null.
+
+2. **`@Size`**
+
+- Specifies the size constraints for a field.
+
+3. **`@Min` and `@Max`**
+
+- Define minimum and maximum values for numeric fields.
+
+4. **`@Pattern`**
+
+- Validates a field against a regular expression.

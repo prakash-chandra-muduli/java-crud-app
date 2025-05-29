@@ -10,30 +10,30 @@ import org.springframework.stereotype.Service;
 @Service
 public class ProductService {
 	private final ProductRepository productRepository;
-	
+
 	public ProductService(ProductRepository productRepository) {
-        this.productRepository = productRepository;
-    }
-	
-	 public List<Product> getAllProducts() {
-	        return productRepository.findAll();
-	    }
+		this.productRepository = productRepository;
+	}
 
-	    public Optional<Product> getProductById(Long id) {
-	        return productRepository.findById(id);
-	    }
+	public List<Product> getAllProducts() {
+		return productRepository.findAll();
+	}
 
-	    public Product saveProduct(Product product) {
-	        return productRepository.save(product);
-	    }
+	public Optional<Product> getProductById(Long id) {
+		return productRepository.findById(id);
+	}
 
-	    public Product updateProduct(Long id, Product product) {
-	        product.setId(id);
-	        return productRepository.save(product);
-	    }
+	public Product saveProduct(Product product) {
+		return productRepository.save(product);
+	}
 
-	    public void deleteProduct(Long id) {
-	        productRepository.deleteById(id);
-	    }
+	public Product updateProduct(Long id, Product product) {
+		product.setId(id);
+		return productRepository.save(product);
+	}
+
+	public void deleteProduct(Long id) {
+		productRepository.deleteById(id);
+	}
 
 }
